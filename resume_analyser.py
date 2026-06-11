@@ -179,6 +179,14 @@ def analyze_resume(filepath):
     for skill in required_skills:
         if skill not in found_skills:
             missing_skills.append(skill)
+    
+    strengths = []
+    weaknesses = []
+    ai_missing_skills = []
+    ai_job_roles = []
+    ai_questions = []
+
+    ai_analysis = "AI Analysis Not Available"
 
     # AI Resume Analysis
 
@@ -279,6 +287,12 @@ def analyze_resume(filepath):
     except Exception as e:
 
         ai_analysis = f"AI Analysis Error: {str(e)}"
+
+        strengths = ["AI service unavailable"]
+        weaknesses = ["Could not generate AI analysis"]
+        ai_missing_skills = []
+        ai_job_roles = []
+        ai_questions = []
     # Return Result
     return {
     "name": candidate_name,
