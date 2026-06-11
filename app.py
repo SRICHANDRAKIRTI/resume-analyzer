@@ -1,10 +1,19 @@
 from flask import Flask, render_template, request, send_file
 import os
 import json
+import boto3
 from resume_analyser import analyze_resume
-#from aws_config import s3, BUCKET_NAME
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
 from reportlab.lib.styles import getSampleStyleSheet
+
+BUCKET_NAME = "resume-analyzer-srichandrakirti"
+
+s3 = boto3.client(
+    "s3",
+    aws_access_key_id=os.getenv("AWS_ACCESS_KEY"),
+    aws_secret_access_key=os.getenv("AWS_SECRET_KEY"),
+    region_name="ap-south-1"
+)
 
 app = Flask(__name__)
 
