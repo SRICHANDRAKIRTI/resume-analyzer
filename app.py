@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, send_file
 import os
 import json
 from resume_analyser import analyze_resume
-from aws_config import s3, BUCKET_NAME
+#from aws_config import s3, BUCKET_NAME
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
 from reportlab.lib.styles import getSampleStyleSheet
 
