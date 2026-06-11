@@ -288,7 +288,8 @@ def analyze_resume(filepath):
         ai_analysis = str(e)
 
         strengths = [str(e)]
-        weaknesses = ["Gemini Error"]
+        weaknesses = [str(e)]
+
         ai_missing_skills = []
         ai_job_roles = []
         ai_questions = []
