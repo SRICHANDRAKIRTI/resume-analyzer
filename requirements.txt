@@ -4,3 +4,4 @@ boto3
 reportlab
 gunicorn
 google-generativeai
+google-generativeai>=0.8.5
