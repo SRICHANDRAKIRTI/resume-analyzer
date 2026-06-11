@@ -1,6 +1,13 @@
 import pdfplumber
 import re
-import ollama
+import google.generativeai as genai
+import os
+
+genai.configure(
+    api_key=os.getenv("GEMINI_API_KEY")
+)
+
+model = genai.GenerativeModel("gemini-1.5-flash")
 
 def analyze_resume(filepath):
 
@@ -219,17 +226,9 @@ def analyze_resume(filepath):
                 {text}
                 """
 
-            response = ollama.chat(
-                model="llama3",
-                messages=[
-                    {
-                        "role": "user",
-                        "content": prompt
-                    }
-                ]
-            )
+            response = model.generate_content(prompt)
 
-            ai_analysis = response["message"]["content"]
+            ai_analysis = response.text
 
             # Parse AI Response
 

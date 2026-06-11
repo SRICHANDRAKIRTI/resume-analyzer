@@ -1,6 +1,6 @@
 flask
 pdfplumber
 boto3
-ollama
 reportlab
 gunicorn
+google-generativeai
