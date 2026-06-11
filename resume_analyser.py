@@ -285,10 +285,10 @@ def analyze_resume(filepath):
 
     except Exception as e:
 
-        ai_analysis = f"AI Analysis Error: {str(e)}"
+        ai_analysis = str(e)
 
-        strengths = ["AI service unavailable"]
-        weaknesses = ["Could not generate AI analysis"]
+        strengths = [str(e)]
+        weaknesses = ["Gemini Error"]
         ai_missing_skills = []
         ai_job_roles = []
         ai_questions = []
