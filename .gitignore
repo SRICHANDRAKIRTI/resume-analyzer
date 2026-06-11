@@ -1,0 +1,5 @@
+**pycache**/
+uploads/
+aws_config.py
+textract_test.py
+.env

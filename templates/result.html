@@ -1,98 +1,207 @@
 <!DOCTYPE html>
+
 <html>
 <head>
     <title>Resume Analysis Result</title>
 
-    <link rel="stylesheet"
-    href="{{ url_for('static', filename='style.css') }}">
+<link rel="stylesheet"
+href="{{ url_for('static', filename='style.css') }}">
+
 </head>
 
 <body>
 
 <div class="container">
 
-    <h1>Resume Analysis Result</h1>
+<h1>🚀 Resume Analysis Dashboard</h1>
 
-    <h3>Candidate Details</h3>
+<div class="cards">
 
-    <p><b>Name:</b> {{ name }}</p>
-
-    <p><b>Email:</b> {{ email }}</p>
-
-    <p><b>Phone:</b> {{ phone }}</p>
-
-    <p class="score"><b>Score:</b> {{ score }}</p>
-
-    <div class="progress">
-        <div class="progress-bar" style="width: {{ score }}%;">
-            {{ score }}%
-        </div>
+    <div class="card score-card">
+        <h2>{{ score }}</h2>
+        <p>Resume Score</p>
     </div>
 
-    <h3>Resume Rating: {{ rating }}</h3>
+    <div class="card ats-card">
+        <h2>{{ ats_score }}%</h2>
+        <p>ATS Score</p>
+    </div>
 
-    <hr>
+    <div class="card skill-card">
+        <h2>{{ skills|length }}</h2>
+        <p>Skills Found</p>
+    </div>
 
-    <h3>Skills</h3>
+</div>
+
+<div class="profile-card">
+
+    <div class="avatar">
+        👨‍💻
+    </div>
+
+    <div class="profile-info">
+        <h2>{{ name }}</h2>
+
+        <p>📧 {{ email }}</p>
+
+        <p>📱 {{ phone }}</p>
+
+        <span class="badge">
+            {{ rating }}
+        </span>
+    </div>
+
+</div>
+
+<h2>📊 ATS Performance</h2>
+
+<div class="progress">
+    <div class="progress-bar" style="width: {{ ats_score }}%;">
+        {{ ats_score }}%
+    </div>
+</div>
+
+<hr>
+
+<h3>🚀 Skills</h3>
+
+<ul>
+    {% for skill in skills %}
+    <li>{{ skill }}</li>
+    {% endfor %}
+</ul>
+
+<hr>
+
+<h3>🎓 Education</h3>
+
+<ul>
+    {% for edu in education %}
+    <li>{{ edu }}</li>
+    {% endfor %}
+</ul>
+
+<hr>
+
+<h3>📂 Projects</h3>
+
+<ul>
+    {% for project in projects %}
+    <li>{{ project }}</li>
+    {% endfor %}
+</ul>
+
+<hr>
+
+<h3>💼 Suitable Job Roles</h3>
+
+<ul>
+    {% for role in job_roles %}
+    <li>{{ role }}</li>
+    {% endfor %}
+</ul>
+
+<hr>
+
+<h3>⚠️ Missing Skills</h3>
+
+<ul>
+    {% for skill in missing_skills %}
+    <li>{{ skill }}</li>
+    {% endfor %}
+</ul>
+
+<hr>
+
+<h3>💡 Suggestions</h3>
+
+<ul>
+    {% for suggestion in suggestions %}
+    <li>{{ suggestion }}</li>
+    {% endfor %}
+</ul>
+
+<hr>
+
+<h3>🎤 Interview Questions</h3>
+
+
+<ul>
+    {% for question in questions %}
+    <li>{{ question }}</li>
+    {% endfor %}
+</ul>
+
+<hr>
+
+<h2>🤖 AI Resume Insights</h2>
+
+<div class="ai-grid">
+
+    <div class="ai-card strength">
+        <h3>🟢 Strengths</h3>
+
+        <ul>
+            {% for item in strengths %}
+            <li>{{ item }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="ai-card weakness">
+        <h3>🔴 Weaknesses</h3>
+
+        <ul>
+            {% for item in weaknesses %}
+            <li>{{ item }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="ai-card missing">
+        <h3>🟡 Missing Skills</h3>
+
+        <ul>
+            {% for item in ai_missing_skills %}
+            <li>{{ item }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="ai-card roles">
+        <h3>💼 Job Roles</h3>
+
+        <ul>
+            {% for item in ai_job_roles %}
+            <li>{{ item }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+
+</div>
+
+<div class="ai-card questions">
+    <h3>🎤 AI Interview Questions</h3>
 
     <ul>
-        {% for skill in skills %}
-        <li>{{ skill }}</li>
+        {% for item in ai_questions %}
+        <li>{{ item }}</li>
         {% endfor %}
     </ul>
+</div>
 
-    <hr>
-
-    <h3>Education</h3>
-
-    <ul>
-        {% for edu in education %}
-        <li>{{ edu }}</li>
-        {% endfor %}
-    </ul>
-
-    <hr>
-
-    <h3>Projects</h3>
-
-    <ul>
-        {% for project in projects %}
-        <li>{{ project }}</li>
-        {% endfor %}
-    </ul>
-
-    <hr>
-
-    <h3>Suggestions</h3>
-
-    <ul>
-        {% for suggestion in suggestions %}
-        <li>{{ suggestion }}</li>
-        {% endfor %}
-    </ul>
-
-    <hr>
-
-    <h3>Interview Questions</h3>
-
-    <ul>
-        {% for question in questions %}
-        <li>{{ question }}</li>
-        {% endfor %}
-    </ul>
-
-    <br>
+<div style="margin-top:30px;">
 
     <a href="/">
-        <button>Analyze Another Resume</button>
+        <button>🔄 Analyze Another Resume</button>
     </a>
-
-    <br><br>
 
     <a href="/download">
-        <button>Download Report</button>
+        <button>📥 Download Report</button>
     </a>
 
+</div>
 </div>
 
 </body>

@@ -1,0 +1,5 @@
+flask
+pdfplumber
+boto3
+ollama
+reportlab

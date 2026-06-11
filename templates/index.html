@@ -1,21 +1,82 @@
 <!DOCTYPE html>
+
 <html>
 <head>
-    <title>Resume Analyzer</title>
+    <title>AI Resume Analyzer</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='style.css') }}">
+
 </head>
+
 <body>
+<div class="floating float1">🚀</div>
+<div class="floating float2">💻</div>
+<div class="floating float3">📄</div>
+<div class="floating float4">☁️</div>
 
-    <h1>Resume Analyzer</h1>
+<div class="home-container">
 
-    <form action="/upload" method="POST" enctype="multipart/form-data">
 
-        <input type="file" name="resume" required>
+<div class="hero">
+
+    <h1>🚀 AI Resume Analyzer</h1>
+
+    <p>
+        Upload your resume and get
+        ATS Score, Skills Analysis,
+        Missing Skills Detection,
+        Job Role Suggestions and
+        Interview Questions instantly.
+    </p>
+
+</div>
+
+<div class="upload-card">
+
+    <h2>📄 Upload Resume</h2>
+
+    <form action="/upload"
+          method="POST"
+          enctype="multipart/form-data">
+
+        <input
+            type="file"
+            name="resume"
+            accept=".pdf"
+            required>
 
         <br><br>
 
-        <button type="submit">Analyze Resume</button>
+        <button type="submit">
+            🔍 Analyze Resume
+        </button>
 
     </form>
+
+</div>
+
+<div class="features">
+
+    <div class="feature-box">
+        📊 ATS Score
+    </div>
+
+    <div class="feature-box">
+        💼 Job Roles
+    </div>
+
+    <div class="feature-box">
+        🚀 Skills Analysis
+    </div>
+
+    <div class="feature-box">
+        🎤 Interview Questions
+    </div>
+
+</div>
+
+</div>
 
 </body>
 </html>
